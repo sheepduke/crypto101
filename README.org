@@ -1,4 +1,4 @@
-* Crypto101 
+* Cryptopals 
 
 ** Usage
 

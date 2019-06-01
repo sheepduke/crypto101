@@ -1,4 +1,4 @@
-(defpackage crypto101
+(defpackage cryptopals
   (:use :cl))
-(in-package :crypto101)
+(in-package :cryptopals)
 

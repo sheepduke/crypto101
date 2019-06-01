@@ -1,10 +1,10 @@
-(defpackage crypto101/tests/main
+(defpackage cryptopals/tests/main
   (:use :cl
-        :crypto101
+        :cryptopals
         :rove))
-(in-package :crypto101/tests/main)
+(in-package :cryptopals/tests/main)
 
-;; NOTE: To run this test file, execute `(asdf:test-system :crypto101)' in your Lisp.
+;; NOTE: To run this test file, execute `(asdf:test-system :cryptopals)' in your Lisp.
 
 (deftest test-target-1
   (testing "should (= 1 1) to be true"

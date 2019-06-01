@@ -1,4 +1,4 @@
-(defsystem "crypto101"
+(defsystem "cryptopals"
   :version "0.1.0"
   :author "YUE Daian"
   :license "MIT"
@@ -7,15 +7,15 @@
                 :components
                 ((:file "main"))))
   :description ""
-  :in-order-to ((test-op (test-op "crypto101/tests"))))
+  :in-order-to ((test-op (test-op "cryptopals/tests"))))
 
-(defsystem "crypto101/tests"
+(defsystem "cryptopals/tests"
   :author "YUE Daian"
   :license ""
-  :depends-on ("crypto101"
+  :depends-on ("cryptopals"
                "rove")
   :components ((:module "tests"
                 :components
                 ((:file "main"))))
-  :description "Test system for crypto101"
+  :description "Test system for cryptopals"
   :perform (test-op (op c) (symbol-call :rove :run c)))

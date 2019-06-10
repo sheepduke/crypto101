@@ -29,7 +29,3 @@
          (vector-push-extend (logior (ash first-hex 2) (ash second-hex -2)) result)
          (vector-push-extend (logior (ash (logand second-hex 3) 4) third-hex) result)
          (finally (return result)))))
-
-;; (hex-string-to-base64 "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d")
-
-;; Three to two

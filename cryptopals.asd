@@ -2,10 +2,12 @@
   :version "0.1.0"
   :author "YUE Daian"
   :license "MIT"
-  :depends-on (qbase64)
+  :depends-on (#:iterate
+                #:qbase64)
   :components ((:module "src"
                 :components
-                ((:file "main"))))
+                ((:file "packages")
+                 (:file "set1"))))
   :description ""
   :in-order-to ((test-op (test-op "cryptopals/tests"))))
 
@@ -16,6 +18,7 @@
                "rove")
   :components ((:module "tests"
                 :components
-                ((:file "main"))))
+                ((:file "packages")
+                 (:file "set1"))))
   :description "Test system for cryptopals"
   :perform (test-op (op c) (symbol-call :rove :run c)))

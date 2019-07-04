@@ -1,7 +1,7 @@
 (in-package :cryptopals)
 
 (defun hex-string-to-base64 (hex-string)
-  "Convert a hex string HEX to base64 encoded string."
+  "Convert a hex string HEX-STRING to base64 encoded string."
   (map 'string
        (lambda (number)
          (cond
@@ -26,6 +26,14 @@
                                          :end (+ index 3)
                                          :radix 16))
          ;; xxxx xxxx xxxx => xxxxxx xxxxxx
-         (vector-push-extend (logior (ash first-hex 2) (ash second-hex -2)) result)
-         (vector-push-extend (logior (ash (logand second-hex 3) 4) third-hex) result)
+         (vector-push-extend (logior (ash first-hex 2) (ash second-hex -2))
+                             result)
+         (vector-push-extend (logior (ash (logand second-hex 3) 4) third-hex)
+                             result)
          (finally (return result)))))
+
+(defun fixed-xor (s1 s2)
+  "Takes two equal-length buffers and produces their XOR combination in string."
+  (write-to-string (logxor (parse-integer s1 :radix 16)
+                           (parse-integer s2 :radix 16))
+                   :base 16))

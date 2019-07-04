@@ -11,3 +11,8 @@
         (buffer2 "686974207468652062756c6c277320657965")
         (result "746865206b696420646f6e277420706c6179"))
     (ok (string-equal (fixed-xor buffer1 buffer2) result))))
+
+(deftest test-crack-single-byte-xor-cipher
+  (let ((cipher "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736")
+        (message "Cooking MC's like a pound of bacon"))
+    (ok (string-equal (crack-single-byte-xor-cipher cipher) message))))

@@ -3,4 +3,3 @@
         :cryptopals
         :rove))
 (in-package cryptopals/tests)
-

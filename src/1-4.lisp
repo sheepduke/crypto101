@@ -8,7 +8,7 @@
 ;;;;
 ;;;; (Your code from #3 should help.)
 
-(defun detect-single-char-xor (input-file)
+(defun crack-single-char-xor-in-file (input-file)
   "Detects the single string that are XOR against a single character in
 INPUT-FILE.
 

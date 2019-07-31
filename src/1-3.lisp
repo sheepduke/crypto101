@@ -54,26 +54,26 @@
     (map 'list #'char-score <>)
     (reduce #'+ <>)))
 
-(defun hex-string-to-byte-array (hex-string)
-  "Decode given HEX-STRING and return its bytes."
+(defun hex-string-to-octets (hex-string)
+  "Decode given HEX-STRING and return its octets."
   (when (oddp (length hex-string))
     (setf hex-string (str:concat "0" hex-string)))
   (iter (for i :from 0 :below (1- (length hex-string)) :by 2)
     (collect (parse-integer (subseq hex-string i (+ i 2)) :radix 16))))
 
-(defun byte-array-xor-byte (byte-array byte)
-  "Calculate xor between BYTE-ARRAY and BYTE and return the newly generated
-byte array."
-  (map 'vector (lambda (b) (logxor b byte)) byte-array))
+(defun octets-xor-byte (octets byte)
+  "Calculate xor between OCTETS and BYTE and return the newly generated
+byte list."
+  (map 'vector (lambda (b) (logxor b byte)) octets))
 
 (defun crack-single-byte-xor-cipher (hex-string)
   "The given message HEX-STRING is a string encrypted using a single character.
 Cracks it using possible single characters and return the result with the
 highest score."
-  (let* ((byte-array (hex-string-to-byte-array hex-string)))
+  (let* ((octets (hex-string-to-octets hex-string)))
     (-<>> (iter (for i from 0 to 255) (collect i))
       (mapcar (lambda (byte)
-                (byte-array-xor-byte byte-array byte)))
+                (octets-xor-byte octets byte)))
       (mapcar #'flex:octets-to-string)
       (mapcar (lambda (it) (list :score (string-score it) :message it)))
       (reduce (lambda (it acc)

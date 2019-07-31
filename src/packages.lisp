@@ -5,5 +5,5 @@
         #:cl-arrows)
   (:export #:hex-string-to-base64
            #:fixed-xor
-           #:crack-single-byte-xor-cipher))
-(in-package :cryptopals)
+           #:crack-single-byte-xor-cipher
+           #:string-xor-repeating-key))

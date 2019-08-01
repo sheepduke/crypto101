@@ -9,7 +9,10 @@
                 ((:file "packages")
                  (:file "1-1")
                  (:file "1-2")
-                 (:file "1-3"))))
+                 (:file "1-3")
+                 (:file "1-4")
+                 (:file "1-5")
+                 (:file "1-6"))))
   :in-order-to ((test-op (test-op "cryptopals/tests"))))
 
 (defsystem cryptopals/tests

@@ -32,12 +32,10 @@
      (collect (logxor (char-code input-char) (char-code cipher-char))))))
 
 (defun octets-to-hex-string (octets)
-  "Encode BYTE-ARRAY to a hex string."
+  "Encode OCTETS to a hex string."
   (-<>> octets
         (map 'list #'octet-to-hex)
         (apply #'concatenate 'string)))
-
-(octets-to-hex-string '#(12 45 16 78))
 
 (defun octet-to-hex (octet)
   "Convert given byte OCTET to size-of-2 hex string."

@@ -1,5 +1,6 @@
 (defpackage cryptopals
   (:use #:cl
+        #:alexandria
         #:iterate
         #:trivia
         #:cl-arrows)

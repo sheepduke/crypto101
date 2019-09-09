@@ -7,4 +7,5 @@
   (:export #:hex-string-to-base64
            #:fixed-xor
            #:crack-single-byte-xor-cipher
-           #:string-xor-repeating-key))
+           #:string-xor-repeating-key
+           #:hamming-distance))

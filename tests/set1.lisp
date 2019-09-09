@@ -5,7 +5,6 @@
     (ok (string-equal (hex-string-to-base64 hex)
                       "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"))))
 
-
 (deftest test-fixed-xor
   (let ((buffer1 "1c0111001f010100061a024b53535009181c")
         (buffer2 "686974207468652062756c6c277320657965")
@@ -23,3 +22,8 @@ I go crazy when I hear a cymbal")
         (cipher "ICE"))
     (ok (string= (string-xor-repeating-key raw-string cipher)
                  "0B3637272A2B2E63622C2E69692A23693A2A3C6324202D623D63343C2A26226324272765272A282B2F20430A652E2C652A3124333A653E2B2027630C692B20283165286326302E27282F"))))
+
+(deftest test-hamming-distance ()
+  (let ((str1 "this is a test")
+        (str2 "wokka wokka!!!"))
+    (ok (= (hamming-distance str1 str2) 37))))

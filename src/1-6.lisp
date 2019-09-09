@@ -53,6 +53,14 @@
 ;;;; break it than can actually break it, and a similar technique breaks
 ;;;; something much more important.
 
+(defun normalized-edit-distance (str keysize)
+  "Calculate the edit distance of STR. Take the first KEYSIZE length of string
+and calculate the normalized hamming distance."
+  (assert (>= (length str) (* keysize 2)))
+  (let ((first-substr (subseq str 0 keysize))
+        (second-substr (subseq str keysize (* keysize 2))))
+    (rem (hamming-distance first-substr second-substr) keysize)))
+
 (defun hamming-distance (str1 str2)
   "Calculate the hamming distance of STR1 and STR2. Hamming distance here
 refers to the difference of bits in binary form."
